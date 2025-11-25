@@ -1,0 +1,103 @@
+/* Styles for Consciência Negra static site */
+:root{
+  --bg:#fafafa;
+  --card:#fff;
+  --accent:#3b2f2f;
+  --accent-2:#d8a34a;
+  --text:#222;
+  --muted:#555;
+  --focus: #ffb84d;
+  --max-width: 1100px;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+
+/* Header */
+.site-header{background:linear-gradient(90deg,var(--accent) 0%, #4b3b3b 100%);color:white;position:sticky;top:0;z-index:30}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.75rem 1rem}
+.logo{font-weight:700;text-decoration:none;color:white}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.main-nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:0.35rem 0.5rem;border-radius:8px;transition:background 180ms, transform 180ms}
+.main-nav a:hover, .main-nav a:focus{background:rgba(255,255,255,0.08);transform:translateY(-2px);outline:none}
+.menu-toggle{display:none;background:none;border:0;color:white;font-size:1.1rem}
+
+/* Hero */
+.hero{padding:2rem 0}
+.hero .lead{color:var(--muted)}
+.hero-images{display:flex;gap:1rem;margin-top:1rem}
+.hero-images figure{flex:1;background:var(--card);padding:0.5rem;border-radius:10px;box-shadow:var(--shadow);overflow:hidden;transition:transform 400ms}
+.hero-images img{width:100%;height:160px;object-fit:cover;display:block;border-radius:8px}
+.hero-images figure:hover{transform:translateY(-6px) scale(1.02)}
+.hero-images figcaption{font-size:0.85rem;color:var(--muted);padding-top:0.5rem}
+
+/* Grid */
+.content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 0}
+.card{display:inline-block;background:var(--card);padding:0.75rem;border-radius:10px;box-shadow:var(--shadow);text-decoration:none;color:var(--accent);font-weight:600;transition:transform 200ms, box-shadow 200ms}
+.card:hover, .card:focus{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12);outline:3px solid var(--focus)}
+
+/* Cards in personalidades */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1rem 0}
+.person-card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:var(--shadow);transition:transform 220ms}
+.person-card:focus, .person-card:hover{transform:translateY(-8px)}
+.person-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.btn{display:inline-block;margin-top:0.5rem;padding:0.45rem 0.7rem;border-radius:8px;background:var(--accent-2);color:#111;text-decoration:none;font-weight:700;transition:transform 150ms}
+.btn:hover, .btn:focus{transform:translateY(-3px)}
+
+/* Links list */
+.link-card{display:inline-block;padding:0.5rem 0.6rem;border-radius:8px;text-decoration:none;background:#fff;border:1px solid #eee;transition:background 160ms}
+.link-card:hover{background:linear-gradient(90deg, #fff, #fff8f0)}
+
+/* CTA */
+.call-to-action{margin-top:1rem;padding:1rem;background:linear-gradient(90deg,#fff7ea,#fff);border-radius:12px;box-shadow:var(--shadow)}
+.cta{padding:0.6rem 1rem;border-radius:999px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer;transition:transform 140ms}
+.cta:hover, .cta:focus{transform:translateY(-4px);box-shadow:0 10px 20px rgba(59,47,47,0.12)}
+
+/* Footer */
+.site-footer{padding:1rem 0;background:#fff;margin-top:2rem;border-top:1px solid #eee}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+
+/* Responsive */
+@media (max-width:900px){
+  .content-grid{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .hero-images{flex-direction:column}
+}
+
+@media (max-width:480px){
+  .main-nav{display:none}
+  .menu-toggle{display:block}
+  .content-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .hero-images img{height:200px}
+  .container{padding:0.5rem}
+}
+
+/* Focus visible for accessibility */
+a:focus, button:focus, .person-card:focus{outline:3px solid var(--focus);outline-offset:3px}
+
+/* Micro animation with keyframes */
+@keyframes pulse {
+  0%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.02);opacity:0.95}
+  100%{transform:scale(1);opacity:1}
+}
+.logo{animation: pulse 6s infinite}
+
+/* Reduce motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none;transition:none}
+}

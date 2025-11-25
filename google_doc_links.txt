@@ -1,0 +1,11 @@
+Google Doc (conteúdo a ser colocado no documento):
+-------------------------------------------------
+Por favor, insira **apenas** as duas linhas abaixo nesse Google Doc:
+
+Link do repositório GitHub:
+https://github.com/<SEU-USUARIO>/<SEU-REPOSITORIO>
+
+Link do site publicado (GitHub Pages):
+https://<SEU-USUARIO>.github.io/<SEU-REPOSITORIO>/
+
+Substitua <SEU-USUARIO> e <SEU-REPOSITORIO> pelos valores reais após publicar.
